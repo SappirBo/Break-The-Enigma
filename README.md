@@ -13,3 +13,7 @@ We built the data set ourselves: after the reserve, to "get back in shape" for w
 After that, I added to the machine an option of reading from text (according to the path of a file) and running the machine on the entire content of the text - so if the machine starts in state 0 of any configuration, for each letter in the i-th position in the text, the machine will encode the letter when it is in state i of Configuration 0 (ie in the initial configuration (state 0) run i transformations of the machine's configuration - this is the i-state of the machine).
 
 I transferred the above method for writing the results into a text file where in each line of the file the first word is the original word (w) and the second word is the coded word (Enigma(w)) with a space between them.
+
+In the beginning the dataset was built on top of the Wikipedia entries of the enigma - it amounted to a total of 16K words.
+
+We tried several runs on several different models - but at most we reached a performance of 70% success - after consultation, we introduced Tiny Shakespeare - a collection of all Shakespeare's plays, the above collection contains more than 40K lines from Shakespeare's plays - something which increased the size of the dataset to more than 200K words in total.
