@@ -17,3 +17,19 @@ I transferred the above method for writing the results into a text file where in
 In the beginning the dataset was built on top of the Wikipedia entries of the enigma - it amounted to a total of 16K words.
 
 We tried several runs on several different models - but at most we reached a performance of 70% success - after consultation, we introduced Tiny Shakespeare - a collection of all Shakespeare's plays, the above collection contains more than 40K lines from Shakespeare's plays - something which increased the size of the dataset to more than 200K words in total.
+
+## The Algorithms used
+### AdaBoost (Adaptive Boosting) using Decision Tree
+introduction:
+Adaboost is an ensemble learning algorithm (combining several individual models) used for classification and regression tasks. Its main purpose is to combine several weak classifiers, usually simple models, into one strong classifier or predictor. The goal is to improve predictive performance over a single weak classifier by iteratively focusing on misclassified cases in the training data.
+
+Adaboost works through an iterative process. Initially, each training instance is assigned equal weight. A weak classifier, usually a decision tree with limited depth (stump), is trained on this weighted data. After training, Adaboost evaluates the performance of the weak classifier. It then assigns higher weights to the misclassified cases, prompting the next weak classifier to focus more on these difficult cases. This process is repeated for a predetermined number of iterations or until a perfect model is obtained. The final model combines the predictions of all weak learners, where the contribution of each weak learner is weighted according to his performance.
+
+Adaboost with decision trees as weak classifiers is particularly effective for binary classification tasks. It works well with databases that contain a mix of numeric and categorical attributes. However, Adaboost can also be applied to regression tasks and can work with different types of data. Its adaptability and strong performance make it suitable for a wide range of machine learning applications, especially when dealing with complex relationships within the data.
+
+In our implementation:
+Since the algorithm combines several weak rules to create a strong rule, we can use any permutation of a given level (letter index - that is, each index will serve as a certain level) as a weak rule and combine them. This way the algorithm will hopefully be able to learn the configuration pattern of the Enigma machine.
+
+There is one problem we can foresee - even in case this algorithm works perfectly, it still always blocks on the longest word in the dataset - because our rules are only set to the maximum size of the dataset.
+
+We will take the information in our database and initialize all the words along the word to a fixed size - because AdaBoost requires a feature vector with a fixed length. We will divide the data into training and testing and train the model - the training of the model will be carried out X times where X is the length of the longest word in our training database -> we would like that in each iteration, AdaBoost will learn the form of the permutation of the same index (in each index 26 letters are mapped to 26 other letters ).
