@@ -21,6 +21,12 @@ Now we consider the number of possible combinations of starting configurations a
 
 So in total we get: 158,962,555,217,826,360,000 configuration options for the machine (**more than 158 quintillion**).
 
+## WW2 Solution
+In World War II, they managed to solve the enigma in the following way - there is a single congenital defect inside the machine, since it is a closed-circuit permutations, it is not possible that when running an enigma the signal that entered as an input will also come out as an output, therefore, given a known sentence in advance - many options can be ruled out.
+
+The allies took advantage of the aforementioned weakness and the fact that every German letter would end with the phrase (some say "Heil Hitler" and some say "weather report") and thus already managed to significantly reduce the number of possible configurations - according to you they built the [Bomb machine](https://en.wikipedia.org/wiki/Bombe) which examines a multitude of possible options from the remaining configurations and then was leaving dozens to hundreds of last possibilities - which would have been checked manually.
+
+![image](https://github.com/SappirBo/Break-The-Enigma/assets/92790326/9f401873-f7e9-48ac-8681-ece1928bb808)
 
 ## Our Solution
 First we wanted to try to solve the enigma with the help of modern tools, to see how it is possible to solve this cipher with the help of machine learning algorithms (ie given some encrypted sentence - find the original sentence). The problem here is fundamental: every time you press a letter - the configuration of the machine changes - therefore for a text of length x characters - the machine has to learn x possible configurations from all the options presented above.
