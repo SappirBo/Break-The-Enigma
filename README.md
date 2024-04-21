@@ -4,6 +4,24 @@ The Enigma Machine is a famous encryption device used by the Germans, mainly dur
 
 This configuration allowed for a huge number of possible settings, making the Enigma's encryption very difficult (and almost impossible) to decipher.
 
+![image](https://github.com/SappirBo/Break-The-Enigma/assets/92790326/d550c188-40f4-4250-af8f-d54f5482dd4d)
+
+## Enigma Machine
+The Enigma machine consists of three main parts:
+1. Three rotors, there are five possible rotors, choose three of them and choose for the aforementioned three the order in which they enter the machine and in addition the starting point of their work (each rotor has 26 starting points as the number of letters in English).
+2. A reflector that actually connects one letter to another - the order can be set and changed but each letter must always be connected to another letter.
+3. A plugboard where you can mix the letters as you wish, that is, it is not mandatory, but you can connect two letters and - so that if it enters the machine, it will actually insert the and vice versa.
+
+![image](https://github.com/SappirBo/Break-The-Enigma/assets/92790326/2d9bd778-9777-4cdc-b1ac-93ca613c35b1)
+
+Now we consider the number of possible combinations of starting configurations and options of the machine:
+* For the rotors (there are five possible, of which you have to choose three in some order): 5 * 4 * 3 = 60.
+* For the starting points of each rotor (each rotor starts its rotation from a certain point between 0-25): 26^3 = 17,576.
+* For the plugboard, there is an option to connect a pair of letters - or not to connect at all, therefore: 26! / (6! * 10! * 2^10) = 150,738,274,237,937,250.
+
+So in total we get: 158,962,555,217,826,360,000 configuration options for the machine (**more than 158 quintillion**).
+
+
 ## Our Solution
 First we wanted to try to solve the enigma with the help of modern tools, to see how it is possible to solve this cipher with the help of machine learning algorithms (ie given some encrypted sentence - find the original sentence). The problem here is fundamental: every time you press a letter - the configuration of the machine changes - therefore for a text of length x characters - the machine has to learn x possible configurations from all the options presented above.
 
